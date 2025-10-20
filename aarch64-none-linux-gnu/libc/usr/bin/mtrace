@@ -26,7 +26,7 @@ q {
 # <https://www.gnu.org/licenses/>.
 
 $VERSION = "2.40";
-$PKGVERSION = "(Arm GNU Toolchain 14.3.Rel1 (Build arm-14.174)) ";
+$PKGVERSION = "(Arm GNU Toolchain 14.2.Rel1 (Build arm-14.52)) ";
 $REPORT_BUGS_TO = '<https://bugs.linaro.org/>';
 $progname = $_;
 

@@ -59,7 +59,7 @@ short options.
 }
 
 do_version() {
-  echo 'xtrace (Arm GNU Toolchain 14.3.Rel1 (Build arm-14.174)) 2.40'
+  echo 'xtrace (Arm GNU Toolchain 14.2.Rel1 (Build arm-14.52)) 2.40'
   printf $"Copyright (C) %s Free Software Foundation, Inc.
 This is free software; see the source for copying conditions.  There is NO
 warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.

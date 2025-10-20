@@ -1,7 +1,7 @@
 This is binutils.info, produced by makeinfo version 6.5 from
 binutils.texi.
 
-Copyright (C) 1991-2025 Free Software Foundation, Inc.
+Copyright (C) 1991-2024 Free Software Foundation, Inc.
 
    Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -42,7 +42,7 @@ Introduction
 ************
 
 This brief manual contains documentation for the GNU binary utilities
-(Arm GNU Toolchain 14.3.Rel1 (Build arm-14.174)) version 2.44.0:
+(Arm GNU Toolchain 14.2.Rel1 (Build arm-14.52)) version 2.43.1:
 
    This document is distributed under the terms of the GNU Free
 Documentation License version 1.3.  A copy of the license is included in
@@ -6263,34 +6263,34 @@ Binutils Index
 
 Tag Table:
 Node: Top1834
-Node: ar3604
-Node: ar cmdline6938
-Node: ar scripts20449
-Node: nm26135
-Node: objcopy41845
-Node: objdump84444
-Node: ranlib123402
-Node: size125001
-Node: strings129145
-Node: strip134980
-Node: c++filt145001
-Ref: c++filt-Footnote-1150862
-Node: addr2line150968
-Node: windmc156923
-Node: windres160582
-Node: dlltool167152
-Node: def file format180605
-Node: readelf183135
-Node: elfedit204473
-Node: Common Options207899
-Node: Selecting the Target System208933
-Node: Target Selection209861
-Node: Architecture Selection211842
-Node: debuginfod212670
-Node: Reporting Bugs213672
-Node: Bug Criteria214434
-Node: Bug Reporting214987
-Node: GNU Free Documentation License221846
-Node: Binutils Index247006
+Node: ar3603
+Node: ar cmdline6937
+Node: ar scripts20448
+Node: nm26134
+Node: objcopy41844
+Node: objdump84443
+Node: ranlib123401
+Node: size125000
+Node: strings129144
+Node: strip134979
+Node: c++filt145000
+Ref: c++filt-Footnote-1150861
+Node: addr2line150967
+Node: windmc156922
+Node: windres160581
+Node: dlltool167151
+Node: def file format180604
+Node: readelf183134
+Node: elfedit204472
+Node: Common Options207898
+Node: Selecting the Target System208932
+Node: Target Selection209860
+Node: Architecture Selection211841
+Node: debuginfod212669
+Node: Reporting Bugs213671
+Node: Bug Criteria214433
+Node: Bug Reporting214986
+Node: GNU Free Documentation License221845
+Node: Binutils Index247005
 
 End Tag Table

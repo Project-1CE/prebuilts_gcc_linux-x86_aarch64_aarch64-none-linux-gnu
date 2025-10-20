@@ -1,7 +1,7 @@
 This is libc.info, produced by makeinfo version 6.5 from libc.texinfo.
 
 This is ‘The GNU C Library Reference Manual’, for version 2.40 (Arm GNU
-Toolchain 14.3.Rel1 (Build arm-14.174)).
+Toolchain 14.2.Rel1 (Build arm-14.52)).
 
    Copyright © 1993–2024 Free Software Foundation, Inc.
 
@@ -2283,7 +2283,7 @@ Main Menu
 *********
 
 This is ‘The GNU C Library Reference Manual’, for version 2.40 (Arm GNU
-Toolchain 14.3.Rel1 (Build arm-14.174)).
+Toolchain 14.2.Rel1 (Build arm-14.52)).
 
    Copyright © 1993–2024 Free Software Foundation, Inc.
 

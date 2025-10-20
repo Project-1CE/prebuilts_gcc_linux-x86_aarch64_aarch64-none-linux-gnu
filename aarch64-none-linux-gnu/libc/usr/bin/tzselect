@@ -2,7 +2,7 @@
 # Ask the user about the time zone, and output the resulting TZ value to stdout.
 # Interact with the user via stderr and stdin.
 
-PKGVERSION="(Arm GNU Toolchain 14.3.Rel1 (Build arm-14.174)) "
+PKGVERSION="(Arm GNU Toolchain 14.2.Rel1 (Build arm-14.52)) "
 TZVERSION="2.40"
 REPORT_BUGS_TO="<https://bugs.linaro.org/>"
 

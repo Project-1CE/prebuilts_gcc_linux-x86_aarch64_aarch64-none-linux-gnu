@@ -1765,7 +1765,7 @@ double underscores.
           #if __GNUC__ > 3 || \
               (__GNUC__ == 3 && (__GNUC_MINOR__ > 2 || \
                                  (__GNUC_MINOR__ == 2 && \
-                                  __GNUC_PATCHLEVEL__ > 0)))
+                                  __GNUC_PATCHLEVEL__ > 0))
 
      Another approach is to use the predefined macros to calculate a
      single number, then compare that against a threshold:
@@ -5620,57 +5620,57 @@ Node: Variadic Macros59129
 Node: Predefined Macros64081
 Node: Standard Predefined Macros64669
 Node: Common Predefined Macros71085
-Node: System-specific Predefined Macros93721
-Node: C++ Named Operators95744
-Node: Undefining and Redefining Macros96708
-Node: Directives Within Macro Arguments98806
-Node: Macro Pitfalls99747
-Node: Misnesting100280
-Node: Operator Precedence Problems101392
-Node: Swallowing the Semicolon103258
-Node: Duplication of Side Effects105281
-Node: Self-Referential Macros107464
-Node: Argument Prescan109873
-Node: Newlines in Arguments113624
-Node: Conditionals114575
-Node: Conditional Uses116271
-Node: Conditional Syntax117629
-Node: Ifdef118089
-Node: If121246
-Node: Defined123550
-Node: Else124943
-Node: Elif125513
-Node: __has_attribute126826
-Node: __has_cpp_attribute128420
-Node: __has_c_attribute129310
-Node: __has_builtin130083
-Node: __has_feature131216
-Node: __has_extension132095
-Node: __has_include133217
-Node: Deleted Code134808
-Node: Diagnostics136055
-Node: Line Control137604
-Node: Pragmas139882
-Node: Other Directives144394
-Node: Preprocessor Output145444
-Node: Traditional Mode148597
-Node: Traditional lexical analysis149734
-Node: Traditional macros152237
-Node: Traditional miscellany156034
-Node: Traditional warnings157030
-Node: Implementation Details159227
-Node: Implementation-defined behavior159790
-Ref: Identifier characters160540
-Node: Implementation limits163589
-Node: Obsolete Features166262
-Node: Invocation169106
-Ref: dashMF175141
-Ref: fdollars-in-identifiers179803
-Ref: Wtrigraphs194003
-Node: Environment Variables196058
-Node: GNU Free Documentation License199749
-Node: Index of Directives224899
-Node: Option Index227198
-Node: Concept Index233300
+Node: System-specific Predefined Macros93720
+Node: C++ Named Operators95743
+Node: Undefining and Redefining Macros96707
+Node: Directives Within Macro Arguments98805
+Node: Macro Pitfalls99746
+Node: Misnesting100279
+Node: Operator Precedence Problems101391
+Node: Swallowing the Semicolon103257
+Node: Duplication of Side Effects105280
+Node: Self-Referential Macros107463
+Node: Argument Prescan109872
+Node: Newlines in Arguments113623
+Node: Conditionals114574
+Node: Conditional Uses116270
+Node: Conditional Syntax117628
+Node: Ifdef118088
+Node: If121245
+Node: Defined123549
+Node: Else124942
+Node: Elif125512
+Node: __has_attribute126825
+Node: __has_cpp_attribute128419
+Node: __has_c_attribute129309
+Node: __has_builtin130082
+Node: __has_feature131215
+Node: __has_extension132094
+Node: __has_include133216
+Node: Deleted Code134807
+Node: Diagnostics136054
+Node: Line Control137603
+Node: Pragmas139881
+Node: Other Directives144393
+Node: Preprocessor Output145443
+Node: Traditional Mode148596
+Node: Traditional lexical analysis149733
+Node: Traditional macros152236
+Node: Traditional miscellany156033
+Node: Traditional warnings157029
+Node: Implementation Details159226
+Node: Implementation-defined behavior159789
+Ref: Identifier characters160539
+Node: Implementation limits163588
+Node: Obsolete Features166261
+Node: Invocation169105
+Ref: dashMF175140
+Ref: fdollars-in-identifiers179802
+Ref: Wtrigraphs194002
+Node: Environment Variables196057
+Node: GNU Free Documentation License199748
+Node: Index of Directives224898
+Node: Option Index227197
+Node: Concept Index233299
 
 End Tag Table

@@ -133,7 +133,7 @@
 .\" ========================================================================
 .\"
 .IX Title "LD 1"
-.TH LD 1 "2025-06-23" "binutils-2.44.0" "GNU Development Tools"
+.TH LD 1 "2024-12-04" "binutils-2.43.1" "GNU Development Tools"
 .\" For nroff, turn off justification.  Always turn off hyphenation; it makes
 .\" way too many mistakes in technical documents.
 .if n .ad l
@@ -975,18 +975,6 @@ relocations.  Different output formats can have further restrictions; for
 example some \f(CW\*(C`a.out\*(C'\fR\-based formats do not support partial linking
 with input files in other formats at all.
 .Sp
-When the relocatable output contains both contents which require
-link-time optimization (\s-1LTO\s0) and contents which don't require \s-1LTO,\s0
-a .gnu_object_only section will be created to contain a relocatable
-object file, as if \fB\-r\fR is applied to all relocatable inputs
-which don't require \s-1LTO.\s0  When processing a relocatable input with
-a .gnu_object_only section, the linker will extract the .gnu_object_only
-section as a separate input.
-.Sp
-Note that since \fB\-r\fR groups some sections from different input files
-together, there may be negative impacts on code size and locality in
-final executable or shared library.
-.Sp
 This option does the same thing as \fB\-i\fR.
 .IP "\fB\-R\fR \fIfilename\fR" 4
 .IX Item "-R filename"
@@ -1482,17 +1470,6 @@ i386 and x86\-64.
 Disable relocation overflow check.  This can be used to disable
 relocation overflow check if there will be no dynamic relocation
 overflow at run-time.  Supported for x86_64.
-.IP "\fBmemory-seal\fR" 4
-.IX Item "memory-seal"
-.PD 0
-.IP "\fBnomemory-seal\fR" 4
-.IX Item "nomemory-seal"
-.PD
-Instruct the executable or shared library that the all \s-1PT_LOAD\s0 segments
-should be sealed to avoid further manipulation (such as changing the
-protection flags, the segment size, or remove the mapping).
-This is a security hardening that requires system support.  This
-generates \s-1GNU_PROPERTY_MEMORY_SEAL\s0 in .note.gnu.property section
 .IP "\fBnow\fR" 4
 .IX Item "now"
 When generating an executable or shared library, mark it to tell the
@@ -2576,17 +2553,6 @@ for compatibility with other linkers, you may omit the leading
 \&\fB0x\fR usually associated with hexadecimal values.  \fINote:\fR there
 should be no white space between \fIsectionname\fR, the equals
 sign ("\fB=\fR"), and \fIorg\fR.
-.IP "\fB\-\-image\-base=\fR\fIorg\fR" 4
-.IX Item "--image-base=org"
-When using \s-1ELF,\s0 same as \fB\-Ttext\-segment\fR, with both options effectively
-setting the base address of the \s-1ELF\s0 executable.
-.Sp
-When using \s-1PE,\s0 use \fIvalue\fR as the base address of your program or dll.
-This is the lowest memory location that will be used when your program or
-dll is loaded.  To reduce the need to relocate and improve performance of
-your dlls, each should have a unique base address and not overlap any
-other dlls.  The default is 0x400000 for executables, and 0x10000000
-for dlls.
 .IP "\fB\-Tbss=\fR\fIorg\fR" 4
 .IX Item "-Tbss=org"
 .PD 0
@@ -2600,7 +2566,7 @@ Same as \fB\-\-section\-start\fR, with \f(CW\*(C`.bss\*(C'\fR, \f(CW\*(C`.data\*
 .IP "\fB\-Ttext\-segment=\fR\fIorg\fR" 4
 .IX Item "-Ttext-segment=org"
 When creating an \s-1ELF\s0 executable, it will set the address of the first
-byte of the first segment.  Note that when \fB\-pie\fR is used with
+byte of the text segment.  Note that when \fB\-pie\fR is used with
 \&\fB\-Ttext\-segment=\fR\fIorg\fR, the output executable is marked
 \&\s-1ET_EXEC\s0 so that the address of the first byte of the text segment will
 be guaranteed to be \fIorg\fR at run time.
@@ -3055,20 +3021,20 @@ maximum cache size to \fIsize\fR.
 Request the creation of a \f(CW\*(C`.note.gnu.build\-id\*(C'\fR \s-1ELF\s0 note section
 or a \f(CW\*(C`.buildid\*(C'\fR \s-1COFF\s0 section.  The contents of the note are
 unique bits identifying this linked file.  \fIstyle\fR can be
-\&\f(CW\*(C`uuid\*(C'\fR to use 128 random bits; \f(CW\*(C`sha1\*(C'\fR to use a 160\-bit
-\&\s-1SHA1\s0 hash, \f(CW\*(C`md5\*(C'\fR to use a 128\-bit \s-1MD5\s0 hash, or \f(CW\*(C`xx\*(C'\fR
-to use a 128\-bit \s-1XXHASH\s0 on the normative parts of the output
-contents; or \f(CW\*(C`0x\f(CIhexstring\f(CW\*(C'\fR to use a chosen bit string
-specified as an even number of hexadecimal digits (\f(CW\*(C`\-\*(C'\fR and
+\&\f(CW\*(C`uuid\*(C'\fR to use 128 random bits, \f(CW\*(C`sha1\*(C'\fR to use a 160\-bit
+\&\s-1SHA1\s0 hash on the normative parts of the output contents,
+\&\f(CW\*(C`md5\*(C'\fR to use a 128\-bit \s-1MD5\s0 hash on the normative parts of
+the output contents, or \f(CW\*(C`0x\f(CIhexstring\f(CW\*(C'\fR to use a chosen bit
+string specified as an even number of hexadecimal digits (\f(CW\*(C`\-\*(C'\fR and
 \&\f(CW\*(C`:\*(C'\fR characters between digit pairs are ignored).  If \fIstyle\fR
 is omitted, \f(CW\*(C`sha1\*(C'\fR is used.
 .Sp
-The \f(CW\*(C`md5\*(C'\fR, \f(CW\*(C`sha1\*(C'\fR, and \f(CW\*(C`xx\*(C'\fR styles produces an
-identifier that is always the same in an identical output file, but
-are almost certainly unique among all nonidentical output files.  It
-is not intended to be compared as a checksum for the file's contents.
-A linked file may be changed later by other tools, but the build \s-1ID\s0
-bit string identifying the original linked file does not change.
+The \f(CW\*(C`md5\*(C'\fR and \f(CW\*(C`sha1\*(C'\fR styles produces an identifier
+that is always the same in an identical output file, but will be
+unique among all nonidentical output files.  It is not intended
+to be compared as a checksum for the file's contents.  A linked
+file may be changed later by other tools, but the build \s-1ID\s0 bit
+string identifying the original linked file does not change.
 .Sp
 Passing \f(CW\*(C`none\*(C'\fR for \fIstyle\fR disables the setting from any
 \&\f(CW\*(C`\-\-build\-id\*(C'\fR options earlier on the command line.
@@ -3078,11 +3044,6 @@ Request the creation of a \f(CW\*(C`.note.package\*(C'\fR \s-1ELF\s0 note sectio
 contents of the note are in \s-1JSON\s0 format, as per the package metadata
 specification.  For more information see:
 https://systemd.io/ELF_PACKAGE_METADATA/
-The \s-1JSON\s0 argument support percent-encoding and following %[string]
-(where string refers to the name in \s-1HTML\s0's Named Character References)
-encoding: \fB%[comma]\fR for \fB,\fR, \fB%[lbrace]\fR for \fB{\fR,
-\&\fB%[quot]\fR for \fB"\fR, \fB%[rbrace]\fR for \fB}\fR, and
-\&\fB%[space]\fR for space character.
 If the \s-1JSON\s0 argument is missing/empty then this will disable the
 creation of the metadata note, if one had been enabled by an earlier
 occurrence of the \-\-package\-metadata option.
@@ -3220,6 +3181,15 @@ file offsets which are multiples of this number.  This defaults to
 Specify the number of bytes of memory to reserve (and optionally commit)
 to be used as heap for this program.  The default is 1MB reserved, 4K
 committed.
+[This option is specific to the i386 \s-1PE\s0 targeted port of the linker]
+.IP "\fB\-\-image\-base\fR \fIvalue\fR" 4
+.IX Item "--image-base value"
+Use \fIvalue\fR as the base address of your program or dll.  This is
+the lowest memory location that will be used when your program or dll
+is loaded.  To reduce the need to relocate and improve performance of
+your dlls, each should have a unique base address and not overlap any
+other dlls.  The default is 0x400000 for executables, and 0x10000000
+for dlls.
 [This option is specific to the i386 \s-1PE\s0 targeted port of the linker]
 .IP "\fB\-\-kill\-at\fR" 4
 .IX Item "--kill-at"
@@ -3776,11 +3746,6 @@ default to not demangling symbols.  This environment variable is used in
 a similar fashion by the \f(CW\*(C`gcc\*(C'\fR linker wrapper program.  The default
 may be overridden by the \fB\-\-demangle\fR and \fB\-\-no\-demangle\fR
 options.
-.PP
-If the \s-1PE/COFF\s0 specific \fB\-\-insert\-timestamp\fR is active and the
-\&\fB\s-1SOURCE_DATE_EPOCH\s0\fR environment variable is defined, then the
-timestamp value in this variable will be inserted into the \s-1COFF\s0 header
-instead of the current time.
 .SH "SEE ALSO"
 .IX Header "SEE ALSO"
 \&\fBar\fR\|(1), \fBnm\fR\|(1), \fBobjcopy\fR\|(1), \fBobjdump\fR\|(1), \fBreadelf\fR\|(1) and
@@ -3788,7 +3753,7 @@ the Info entries for \fIbinutils\fR and
 \&\fIld\fR.
 .SH "COPYRIGHT"
 .IX Header "COPYRIGHT"
-Copyright (c) 1991\-2025 Free Software Foundation, Inc.
+Copyright (c) 1991\-2024 Free Software Foundation, Inc.
 .PP
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the \s-1GNU\s0 Free Documentation License, Version 1.3

@@ -71,7 +71,7 @@ do_ambiguous() {
 while test $# -gt 0; do
   case "$1" in
   --v | --ve | --ver | --vers | --versi | --versio | --version)
-    echo "sotruss (Arm GNU Toolchain 14.3.Rel1 (Build arm-14.174)) 2.40"
+    echo "sotruss (Arm GNU Toolchain 14.2.Rel1 (Build arm-14.52)) 2.40"
     printf $"Copyright (C) %s Free Software Foundation, Inc.
 This is free software; see the source for copying conditions.  There is NO
 warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
